@@ -2,7 +2,7 @@ const isMale = (user) => user.gender === 'male'
 const startsWithAToM = (str) => str[0] <= 'm'
 
 const jsonToData = (json) =>{
-    const data = JSON.parse(json).results
+    const data = typeof json === 'string'? JSON.parse(json).results : json.results
     const stats = {
         numberOfMales:0,
         numberOfFemales:0,
@@ -57,6 +57,53 @@ const jsonToData = (json) =>{
 
     return stats
 }
+
+const toPercent = (a, b) => {
+    let result = ((a / b) * 100)
+    if (!Number.isInteger(result)) {
+        result = +result.toFixed(1)
+    }
+    return result
+}
+const getTenMostPopulous = (obj, total) => Object.keys(obj)
+    .map(state => ({
+        population: toPercent(obj[state], total),
+        name: state
+    }))
+    .sort((a, b) => b.population - a.population)
+    .slice(0, 10)
+
+const statsToPercents = statsObj =>{
+    const ageRanges = ['0‐20',  '21‐40',  '41‐60',  '61‐80',  '81‐100', '100+']
+    const femaleToMalePercentage = toPercent(statsObj.numberOfFemales, statsObj.numberOfMales)
+    const firstNameAMvsNZpercentage = toPercent(statsObj.numFirstNamesAToM, statsObj.numFirstNamesNToZ)
+    const lastNameAMvsNZpercentage = toPercent(statsObj.numLastNamesAToM, statsObj.numLastNamesNToZ)
+    const statePopulationPercentArr = getTenMostPopulous(statsObj.statesByPeople, statsObj.totalCount)
+    const stateMalePopulationPercentArr = getTenMostPopulous(statsObj.statesByMales, statsObj.numberOfMales)
+    const stateFemalePopulationPercentArr = getTenMostPopulous(statsObj.statesByFemales, statsObj.numberOfFemales)
+    const agePercentages = statsObj.ages.map((num, i, arr) => ({
+        percentage: toPercent(num, statsObj.totalCount),
+        range: ageRanges[i],
+        raw: arr[i]
+    }))
+    const percentMale = toPercent(statsObj.numberOfMales, statsObj.totalCount)
+    const percentFemale = toPercent(statsObj.numberOfFemales, statsObj.totalCount)
+    
+    return {
+        femaleToMalePercentage,
+        firstNameAMvsNZpercentage,
+        lastNameAMvsNZpercentage,
+        statePopulationPercentArr,
+        stateMalePopulationPercentArr,
+        stateFemalePopulationPercentArr,
+        agePercentages,
+        percentMale,
+        percentFemale
+    }
+}
+
+
 module.exports = {
-    jsonToData
+    jsonToData,
+    statsToPercents
 }

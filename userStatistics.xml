@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <femaleToMalePercentage>200</femaleToMalePercentage>
+  <firstNameAMvsNZpercentage>500</firstNameAMvsNZpercentage>
+  <lastNameAMvsNZpercentage>1100</lastNameAMvsNZpercentage>
+  <statePopulationPercents>
+    <people>
+      <AustralianCapitalTerritory>16.7</AustralianCapitalTerritory>
+      <Auckland>8.3</Auckland>
+      <Pirkanmaa>8.3</Pirkanmaa>
+      <Danmark>8.3</Danmark>
+      <Rondônia>8.3</Rondônia>
+      <Satakunta>8.3</Satakunta>
+      <WestYorkshire>8.3</WestYorkshire>
+      <Troms-Romsa>8.3</Troms-Romsa>
+      <Kymenlaakso>8.3</Kymenlaakso>
+      <SouthKarelia>8.3</SouthKarelia>
+    </people>
+    <males>
+      <Rondônia>25</Rondônia>
+      <Kymenlaakso>25</Kymenlaakso>
+      <SouthKarelia>25</SouthKarelia>
+      <Auckland>25</Auckland>
+    </males>
+    <females>
+      <AustralianCapitalTerritory>25</AustralianCapitalTerritory>
+      <Satakunta>12.5</Satakunta>
+      <Pirkanmaa>12.5</Pirkanmaa>
+      <Danmark>12.5</Danmark>
+      <Päijät-häme>12.5</Päijät-häme>
+      <WestYorkshire>12.5</WestYorkshire>
+      <Troms-Romsa>12.5</Troms-Romsa>
+    </females>
+  </statePopulationPercents>
+  <ageDistribution>
+    <range0‐20>0</range0‐20>
+    <range21‐40>16.7</range21‐40>
+    <range41‐60>66.7</range41‐60>
+    <range61‐80>16.7</range61‐80>
+    <range81‐100>0</range81‐100>
+    <rangeOver100>0</rangeOver100>
+  </ageDistribution>
+</root>

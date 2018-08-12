@@ -1,19 +1,20 @@
 import React, {Component} from 'react';
-import {jsonToData} from '../../utils';
+import {jsonToData, statsToPercents} from '../../utils';
 
 export default class DataEntryForm extends Component{
     constructor(props){
         super(props)
         this.state = {
             method: 'file',
-            text:'',
+            jsonString:'',
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
     
     handleChange(e){
-        this.setState({
+        
+        this.setState({...this.state,
             [e.target.name]: e.target.value
         })
     }
@@ -28,7 +29,9 @@ export default class DataEntryForm extends Component{
             let blob = event.target.jsonFile.files[0]
             fr.readAsText(blob)
         }else{
-            this.props.submitData(jsonToData(this.state.text))
+            let stats = jsonToData(this.state.jsonString)
+            
+            this.props.submitData(statsToPercents(stats))
         }
     }
 
