@@ -17,24 +17,31 @@ app.post('/percentages', (req, res, next) => {
     const userData = req.body
     try {
         const stats = jsonToData(userData)
-        const extension = req.query.filetype
+        let extension = req.query.filetype
+        const bestMatch = req.accepts(['json','txt','xml'])
         const {
-            femaleToMalePercentage,
-            firstNameAMvsNZpercentage,
-            lastNameAMvsNZpercentage,
             statePopulationPercentArr,
             stateMalePopulationPercentArr,
             stateFemalePopulationPercentArr,
-            agePercentages
+            agePercentages,
+            percentMale,
+            percentFemale,
+            percentFirstNameAM,
+            percentFirstNameNZ,
+            percentLastNameAM,
+            percentLastNameNZ
         } = jsonObj = statsToPercents(stats)
-        
+        if(extension !== 'json' && extension !== 'txt' && extension !== 'xml'){
+            extension = bestMatch
+        }
+        console.log(extension)
         switch (extension) {
             case 'json':
                 fs.writeFileSync('./userStatistics.' + extension, JSON.stringify(jsonObj))
                 break
             case 'txt':
                 let data = '';
-                data += `Percentage female versus male: ${femaleToMalePercentage}%\nPercentage of first names that start with A‐M versus N‐Z: ${firstNameAMvsNZpercentage}%\nPercentage of last names that start with A‐M versus N‐Z: ${lastNameAMvsNZpercentage}%\n`
+                data += `Percentage Female: ${percentFemale}%\nPercentage Male: ${percentMale}%\nPercentage of first names that start with A‐M: ${percentFirstNameAM}%\nPercentage of first names that start with N-Z: ${percentFirstNameNZ}%\nPercentage of last names that start with A‐M: ${percentLastNameAM}%\nPercentage of last names that start with N-Z: ${percentLastNameNZ}%\n`
 
                 function addPopulations(type, arr) {
                     data += `Percentages of ${type} in the ${arr.length} most populous states:\n`
@@ -53,9 +60,18 @@ app.post('/percentages', (req, res, next) => {
                 break
             case 'xml':
                 let xmlFormatting = {
-                    femaleToMalePercentage,
-                    firstNameAMvsNZpercentage,
-                    lastNameAMvsNZpercentage,
+                    genderDistribution:{
+                        percentMale:percentMale,
+                        percentFemale:percentFemale
+                    },
+                    firstNameAMvsNZpercentages:{
+                        "A-M":percentFirstNameAM,
+                        "N-Z":percentFirstNameNZ
+                    },
+                    lastNameAMvsNZpercentages:{
+                        "A-M":percentLastNameAM,
+                        "N-Z":percentLastNameNZ
+                    },
                     statePopulationPercents: {
                         people: Object.assign({}, ...statePopulationPercentArr.map(obj => {
                             let name = obj.name.split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join('')

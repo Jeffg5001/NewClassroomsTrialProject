@@ -1,20 +1,91 @@
 h1{
-    margin: auto;
-    min-width: 300px;
-    width: 20%;
+    text-align: center;
+}
+h3{
+    text-align: center;
+
 }
 body{
-    font-family: monospace;
-    /* background: linear-gradient(to top, #2c3e50, #bdc3c7); */
+    font-family: sans-serif;
+    background: url(backgroundimg.jpg);
 }
 #dashboard{
-    height: 82vh
+    /* height: 82vh */
 }
 #DataEntryForm{
-    width:25vw;
-    margin:auto;
+    width: 19vw;
+    margin: auto;
+    background: rgba(255, 255, 255, 80%);
+    padding: 16px;
+    border-radius: 28px;
+    transition: all .2s ease;
 }
+#DataEntryForm:hover{
+    box-shadow: black 4px 4px 20px 0px;
+}
+
 input[type='submit']{
     background: #dfb74c;
     border: none;
+    border-radius: 25px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px;
+    transition: all .2s ease;
+}
+input[type='submit']:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+.chart-container{
+    position: relative;
+    margin: 5px;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 80%);
+    border-radius: 28px;
+    transition: all 0.2s ease;
+}
+.chart-container:hover{
+    box-shadow: black 4px 4px 20px 0px;
+    
+}
+
+.pie{
+    max-width: 500px;
+    padding: 5px;
+}
+
+.bar{
+    width: 520px;
+}
+
+#age-y-axis{
+    position: absolute;
+    transform: rotate(-90deg);
+    text-anchor: end;
+    top: 50%;
+    left: -10%;
+}
+#age-x-axis{
+    position: absolute;
+    left: 32%;
+    bottom: -2%;
+}
+#age-title{
+
+    /* left: 32%; */
+
+}
+
+#dashboard{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+h4{
+    text-align: center;
 }

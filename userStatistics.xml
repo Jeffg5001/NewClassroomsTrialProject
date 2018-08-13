@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <root>
-  <femaleToMalePercentage>200</femaleToMalePercentage>
-  <firstNameAMvsNZpercentage>500</firstNameAMvsNZpercentage>
-  <lastNameAMvsNZpercentage>1100</lastNameAMvsNZpercentage>
+  <genderDistribution>
+    <male>33.3</male>
+    <female>66.7</female>
+  </genderDistribution>
+  <firstNameAMvsNZpercentages>
+    <A-M>83.3</A-M>
+    <N-Z>16.7</N-Z>
+  </firstNameAMvsNZpercentages>
+  <lastNameAMvsNZpercentages>
+    <A-M>91.7</A-M>
+    <N-Z>8.3</N-Z>
+  </lastNameAMvsNZpercentages>
   <statePopulationPercents>
     <people>
       <AustralianCapitalTerritory>16.7</AustralianCapitalTerritory>

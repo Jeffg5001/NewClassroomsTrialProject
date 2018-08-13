@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import DataEntryForm from './components/DataEntryForm.js';
-import DataVisualization from './components/DataVisualization';
+import DataVisualization from './components/DataVisualization.js';
 
 
 export default class App extends Component{

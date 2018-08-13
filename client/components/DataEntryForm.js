@@ -24,13 +24,13 @@ export default class DataEntryForm extends Component{
         if(e.target.method.value === 'file'){
             const fr = new FileReader()
             fr.onload = (event)=>{
-                this.props.submitData(jsonToData(event.target.result))
+                let stats = jsonToData(event.target.result)
+                this.props.submitData(statsToPercents(stats))
             }
             let blob = event.target.jsonFile.files[0]
             fr.readAsText(blob)
         }else{
             let stats = jsonToData(this.state.jsonString)
-            
             this.props.submitData(statsToPercents(stats))
         }
     }

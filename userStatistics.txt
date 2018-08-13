@@ -1,6 +1,9 @@
-Percentage female versus male: 200%
-Percentage of first names that start with A‐M versus N‐Z: 500%
-Percentage of last names that start with A‐M versus N‐Z: 1100%
+Percentage Female: 66.7%
+Percentage Male: 33.3%
+Percentage of first names that start with A‐M: 83.3%
+Percentage of first names that start with N-Z: 16.7%
+Percentage of last names that start with A‐M: 91.7%
+Percentage of last names that start with N-Z: 8.3%
 Percentages of people in the 10 most populous states:
     australian capital territory: 16.7%
     auckland: 8.3%

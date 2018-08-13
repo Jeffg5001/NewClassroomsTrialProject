@@ -75,9 +75,9 @@ const getTenMostPopulous = (obj, total) => Object.keys(obj)
 
 const statsToPercents = statsObj =>{
     const ageRanges = ['0‐20',  '21‐40',  '41‐60',  '61‐80',  '81‐100', '100+']
-    const femaleToMalePercentage = toPercent(statsObj.numberOfFemales, statsObj.numberOfMales)
-    const firstNameAMvsNZpercentage = toPercent(statsObj.numFirstNamesAToM, statsObj.numFirstNamesNToZ)
-    const lastNameAMvsNZpercentage = toPercent(statsObj.numLastNamesAToM, statsObj.numLastNamesNToZ)
+    // const femaleToMalePercentage = toPercent(statsObj.numberOfFemales, statsObj.numberOfMales)
+    // const firstNameAMvsNZpercentage = toPercent(statsObj.numFirstNamesAToM, statsObj.numFirstNamesNToZ)
+    // const lastNameAMvsNZpercentage = toPercent(statsObj.numLastNamesAToM, statsObj.numLastNamesNToZ)
     const statePopulationPercentArr = getTenMostPopulous(statsObj.statesByPeople, statsObj.totalCount)
     const stateMalePopulationPercentArr = getTenMostPopulous(statsObj.statesByMales, statsObj.numberOfMales)
     const stateFemalePopulationPercentArr = getTenMostPopulous(statsObj.statesByFemales, statsObj.numberOfFemales)
@@ -88,17 +88,25 @@ const statsToPercents = statsObj =>{
     }))
     const percentMale = toPercent(statsObj.numberOfMales, statsObj.totalCount)
     const percentFemale = toPercent(statsObj.numberOfFemales, statsObj.totalCount)
+    const percentFirstNameAM = toPercent(statsObj.numFirstNamesAToM, statsObj.totalCount)
+    const percentFirstNameNZ = toPercent(statsObj.numFirstNamesNToZ, statsObj.totalCount)
+    const percentLastNameAM = toPercent(statsObj.numLastNamesAToM, statsObj.totalCount)
+    const percentLastNameNZ = toPercent(statsObj.numLastNamesNToZ, statsObj.totalCount)
     
     return {
-        femaleToMalePercentage,
-        firstNameAMvsNZpercentage,
-        lastNameAMvsNZpercentage,
+        percentMale,
+        percentFemale,
+        percentFirstNameAM,
+        percentFirstNameNZ,
+        percentLastNameAM,
+        percentLastNameNZ,
+        // femaleToMalePercentage,
+        // firstNameAMvsNZpercentage,
+        // lastNameAMvsNZpercentage,
         statePopulationPercentArr,
         stateMalePopulationPercentArr,
         stateFemalePopulationPercentArr,
         agePercentages,
-        percentMale,
-        percentFemale
     }
 }
 
