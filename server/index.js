@@ -5,6 +5,7 @@ const { jsonToData, statsToPercents } = require('../utils');
 const fs = require('fs')
 const xml2js = require('xml2js')
 const builder = new xml2js.Builder()
+const path = require('path')
 
 
 
@@ -116,3 +117,6 @@ app.post('/percentages', (req, res, next) => {
     }
 })
 
+app.get('*',(req,res,next)=>{
+    res.sendFile(path.join(__dirname, '..','public', 'index.html'))
+})
