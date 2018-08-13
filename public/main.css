@@ -9,9 +9,6 @@ body{
     font-family: sans-serif;
     background: url(backgroundimg.jpg);
 }
-#dashboard{
-    /* height: 82vh */
-}
 #DataEntryForm{
     width: 19vw;
     margin: auto;
@@ -72,11 +69,6 @@ input[type='submit']:hover{
     position: absolute;
     left: 32%;
     bottom: -2%;
-}
-#age-title{
-
-    /* left: 32%; */
-
 }
 
 #dashboard{

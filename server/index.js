@@ -12,6 +12,8 @@ app.listen(3000)
 
 app.use(bodyParser.json())
 
+app.use(express.static('public'))
+
 //example usage POST to localhost:3000/percentages?filetype=xml  body:JSON file from https://randomuser.me/
 app.post('/percentages', (req, res, next) => {
     const userData = req.body
@@ -113,3 +115,4 @@ app.post('/percentages', (req, res, next) => {
         res.status(415).send('unsupported file type in request body, please only use json')
     }
 })
+

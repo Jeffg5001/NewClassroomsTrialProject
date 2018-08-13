@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV='test' mocha ./*.spec.js -w",
-    "dev": "webpack-dev-server --config ./webpack.dev.config.js & nodemon server/index.js"
+    "dev": "webpack-dev-server --config ./webpack.dev.config.js & nodemon server/index.js",
+    "deploy": "webpack --config ./webpack.dev.config.js && git add . && git commit -m 'deploying to heroku' && git push heroku master "
   },
   "author": "Jeff Goldbeck",
   "license": "ISC",
