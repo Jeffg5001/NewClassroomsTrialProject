@@ -7,7 +7,7 @@
     "test": "NODE_ENV='test' mocha ./*.spec.js -w",
     "dev": "webpack-dev-server --config ./webpack.dev.config.js & nodemon server/index.js",
     "deploy": "webpack --config ./webpack.dev.config.js && git add . && git commit -m 'deploying to heroku' && git push heroku master",
-    "start": "node ./server" 
+    "start": "node ./server"
   },
   "author": "Jeff Goldbeck",
   "license": "ISC",
