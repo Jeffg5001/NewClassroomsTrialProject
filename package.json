@@ -28,7 +28,8 @@
     "react-dom": "^16.4.2",
     "react-svg-piechart": "^2.1.1",
     "webpack": "^4.16.5",
-    "webpack-dev-server": "^3.1.5"
+    "webpack-dev-server": "^3.1.5",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -45,8 +46,7 @@
     "less-loader": "^4.1.0",
     "mocha": "^5.2.0",
     "style-loader": "^0.22.1",
-    "webpack-cli": "^3.1.0",
-    "xml2js": "^0.4.19"
+    "webpack-cli": "^3.1.0"
   },
   "babel": {
     "presets": [
